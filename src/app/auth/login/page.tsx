@@ -1,9 +1,15 @@
-import React from 'react'
+import LoginPage from "@/components/LoginPage";
+import { ValidateToken } from "@/utils/ValidationToken";
+import { redirect } from "next/navigation";
 
-function Login() {
+export default async function Login() {
+  const user = await ValidateToken();
+  if (user) {
+    redirect("/dashboard");
+  }
   return (
-    <div>Login</div>
-  )
+    <>
+      <LoginPage />
+    </>
+  );
 }
-
-export default Login
