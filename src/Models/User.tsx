@@ -4,6 +4,7 @@ interface IUserSchema {
   Fname: string;
   Lname: string;
   email: string;
+  phone: string;
   password: string;
   role: "admin" | "user";
 }
@@ -35,6 +36,13 @@ const UserSchema = new Schema<IUserSchema>({
     required: true,
     trim: true,
     match: /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/,
+  },
+  phone: {
+    type: String,
+    required: true,
+    unique: true,
+    trim: true,
+    match: /^09\d{9}$/,
   },
   role: {
     type: String,
