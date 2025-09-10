@@ -14,14 +14,14 @@ export default function HeaderClient({ UserLogin }: HeaderClientProps) {
     try {
       await fetch("/api/auth/logout", { method: "POST" });
       router.replace("/auth/login");
-      router.refresh()
+      router.refresh();
     } catch (err) {
       console.error(err);
     }
   };
 
   return (
-    <header className="p-8 bg-[#2d2d2d] flex justify-center items-center text-white">
+    <header className="p-8 bg-[#4f5d6e] flex justify-center items-center text-white">
       <ul className="flex gap-10">
         {UserLogin ? (
           <li>
