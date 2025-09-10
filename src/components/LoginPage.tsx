@@ -1,5 +1,6 @@
 "use client";
 import axios from "axios";
+import Link from "next/link";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
@@ -38,7 +39,7 @@ export default function LoginPage() {
         console.log(res.data);
         toast.success("Login successful");
         router.replace("/dashboard");
-        router.refresh()
+        router.refresh();
         setLoding(false);
       }
     } catch (error: any) {
@@ -48,7 +49,6 @@ export default function LoginPage() {
 
   return (
     <>
-  
       <section className="flex flex-col w-full justify-center h-[100vh] items-center gap-4">
         <h1 className="my-3 text-2xl font-semibold">Login</h1>
         <form
@@ -71,7 +71,6 @@ export default function LoginPage() {
                 : "border-red-500"
             }`}
           />
-
           <input
             type="password"
             placeholder="Please Enter your Password"
@@ -91,6 +90,12 @@ export default function LoginPage() {
           >
             {loding ? "Loding...." : "Login"}
           </button>
+          <span className="flex gap-2">
+            Don't you have an account? 
+            <Link className="text-blue-600" href={"/auth/register"}>
+              Register
+            </Link>
+          </span>
         </form>
       </section>
     </>
