@@ -1,6 +1,5 @@
 
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 # 📱 FullStack Phonebook App
 
 A **full-stack phonebook application** built with **Next.js 15, TypeScript, and MongoDB**.  
@@ -25,6 +24,7 @@ This project is a great showcase of **frontend, backend, and authentication skil
 ## Getting Started
 
 First, run the development server:
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ```bash
 npm run dev
