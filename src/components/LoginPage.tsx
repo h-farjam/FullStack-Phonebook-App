@@ -3,7 +3,7 @@ import axios from "axios";
 import { useRouter } from "next/navigation";
 
 import React, { useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const emailRegex: RegExp = /^[\w-\.]+@([\w-]+\.)+[\w-]{2,4}$/;
 const PassRegex: RegExp = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[\W_]).{8,}$/;
@@ -38,6 +38,7 @@ export default function LoginPage() {
         console.log(res.data);
         toast.success("Login successful");
         router.replace("/dashboard");
+        router.refresh()
         setLoding(false);
       }
     } catch (error: any) {
@@ -47,7 +48,7 @@ export default function LoginPage() {
 
   return (
     <>
-      <Toaster position="top-left" />
+  
       <section className="flex flex-col w-full justify-center h-[100vh] items-center gap-4">
         <h1 className="my-3 text-2xl font-semibold">Login</h1>
         <form
