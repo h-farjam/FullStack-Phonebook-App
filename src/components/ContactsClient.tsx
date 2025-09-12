@@ -1,6 +1,9 @@
 "use client";
-
 import React from "react";
+import { CiEdit } from "react-icons/ci";
+import { MdDeleteOutline } from "react-icons/md";
+import { FaRegHeart } from "react-icons/fa";
+import Link from "next/link";
 
 interface ContactType {
   _id: string;
@@ -26,8 +29,22 @@ export default function ContactsClient({ contacts }: Props) {
       {contacts.map((contact) => (
         <div
           key={contact._id}
-          className="bg-white shadow-md flex flex-col justify-start gap-3 rounded-xl p-5 border-r-2 border-[#4f5d6e] hover:shadow-xl transition-shadow duration-300"
+          className="bg-white relative shadow-md flex flex-col justify-start gap-3 rounded-xl p-5 border-r-2 border-[#4f5d6e] hover:shadow-xl transition-shadow duration-300"
         >
+          <div className="absolute h-full pr-4  flex flex-col justify-center items-center gap-5 pt-4 right-0">
+            <Link href={`/contacts/${contact._id}/edit`}>
+              <CiEdit
+                size={"20px"}
+                className=" cursor-pointer text-green-500 top-8"
+              />
+            </Link>
+            <MdDeleteOutline
+              size={"20px"}
+              className=" cursor-pointer text-red-500 top-21"
+            />
+            <FaRegHeart size={"18px"} className=" cursor-pointer top-35" />
+          </div>
+
           <h2 className="text-xl font-semibold mb-2">
             {contact.Fname} {contact.Lname}
           </h2>
