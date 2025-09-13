@@ -5,9 +5,10 @@ import { NextRequest, NextResponse } from "next/server";
 
 export async function PUT(
   req: NextRequest,
-  { params }: { params: { id: string } }
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const id = params.id;
+  const resolve = await params;
+  const { id } = resolve;
   console.log("Updating contact with ID:", id);
 
   const user = await ValidateToken();
