@@ -50,3 +50,33 @@ export async function PUT(
     contact: updatedContact,
   });
 }
+
+
+export async function DELETE(
+  req: Request,
+  { params }: { params: { id: string } } 
+) {
+  const { id } = params;
+  console.log("Deleting contact with ID:", id);
+
+  const user = await ValidateToken();
+  if (!user) {
+    return NextResponse.json({ error: "Unauthorized" }, { status: 401 });
+  }
+
+  await ConnectDB();
+
+  const deletedContact = await Contact.findOneAndDelete({
+    _id: id,
+    userID: user.userID,
+  });
+
+  if (!deletedContact) {
+    return NextResponse.json({ error: "Contact not found" }, { status: 404 });
+  }
+
+  return NextResponse.json({
+    message: "Contact deleted successfully",
+    contact: deletedContact,
+  });
+}
