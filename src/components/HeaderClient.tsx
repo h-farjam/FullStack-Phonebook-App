@@ -38,7 +38,7 @@ export default function HeaderClient({ UserLogin }: HeaderClientProps) {
           <Link href="/contacts">Contacts</Link>
         </li>
         <li>
-          <Link href="/addcontact">AddContact</Link>
+          <Link href="/addcontacts">AddContact</Link>
         </li>
         <li>
           <Link href="/dashboard">Dashboard</Link>
