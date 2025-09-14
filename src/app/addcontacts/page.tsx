@@ -1,7 +1,7 @@
 "use client";
 import React, { useState } from "react";
 import axios from "axios";
-import toast, { Toaster } from "react-hot-toast";
+import toast from "react-hot-toast";
 import { useRouter } from "next/navigation";
 
 interface ContactFormData {
@@ -86,7 +86,7 @@ function AddContacts() {
   };
 
   return (
-    <div className="flex my-5 justify-center items-center min-h-screen bg-gray-50">
+    <div className="flex my-10 justify-center items-center min-h-screen bg-gray-50">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-lg rounded-2xl p-8 w-full max-w-md space-y-6"
@@ -164,7 +164,7 @@ function AddContacts() {
 
         <button
           type="submit"
-          className="w-full bg-blue-500 cursor-pointer hover:bg-blue-600 text-white font-medium py-2 px-4 rounded-xl transition-all duration-200"
+          className="w-full bg-[#6b8173] cursor-pointer hover:bg-[#5a6b61] text-white font-medium py-2 px-4 rounded-xl transition-all duration-200"
         >
           Save Contact
         </button>

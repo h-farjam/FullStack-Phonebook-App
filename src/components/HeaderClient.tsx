@@ -21,27 +21,27 @@ export default function HeaderClient({ UserLogin }: HeaderClientProps) {
   };
 
   return (
-    <header className="p-8 bg-[#4f5d6e] flex justify-center items-center text-white">
+    <header className="p-8 bg-[#6b8173] flex justify-center items-center text-white">
       <ul className="flex gap-10">
         {UserLogin ? (
           <li>
-            <button onClick={handleLogout} className="hover:underline">
+            <button onClick={handleLogout} className="hover:underline cursor-pointer">
               Logout
             </button>
           </li>
         ) : (
           <li>
-            <Link href="/auth/login">Login</Link>
+            <Link className="hover:underline cursor-pointer" href="/auth/login">Login</Link>
           </li>
         )}
         <li>
-          <Link href="/contacts">Contacts</Link>
+          <Link className="hover:underline cursor-pointer" href="/contacts">Contacts</Link>
         </li>
         <li>
-          <Link href="/addcontacts">AddContact</Link>
+          <Link className="hover:underline cursor-pointer" href="/addcontacts">AddContact</Link>
         </li>
         <li>
-          <Link href="/dashboard">Dashboard</Link>
+          <Link className="hover:underline cursor-pointer" href="/dashboard">Dashboard</Link>
         </li>
       </ul>
     </header>

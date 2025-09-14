@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import Contact from "@/Models/Contact";
 import ConnectDB from "@/utils/ConnectDB";
 import { ValidateToken } from "@/utils/ValidationToken";
+import { redirect } from "next/navigation";
 
 interface ContactBody {
   Fname: string;
@@ -49,9 +50,6 @@ export async function POST(req: NextRequest) {
     );
   } catch (error) {
     console.error("Error creating contact:", error);
-    return NextResponse.json(
-      { error: "Server error" },
-      { status: 500 }
-    );
+    return NextResponse.json({ error: "Server error" }, { status: 500 });
   }
 }
