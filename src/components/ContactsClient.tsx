@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useMemo } from "react";
 import { CiEdit } from "react-icons/ci";
 import { MdDeleteOutline } from "react-icons/md";
 import { FaRegHeart } from "react-icons/fa";
@@ -22,15 +22,25 @@ interface Props {
 }
 
 export default function ContactsClient({ contacts }: Props) {
-  // 🔹 state برای لیست مخاطب‌ها
   const [contactList, setContactList] = useState<ContactType[]>(contacts);
+  const [search, setSearch] = useState<string>("");
+
+  const filteredContacts = useMemo(() => {
+    return contactList.filter((c) =>
+      `${c.Fname} ${c.Lname} ${c.phone}  ${c.age}`
+        .toLowerCase()
+        .includes(search.toLowerCase())
+    );
+  }, [search, contactList]);
 
   if (!contactList.length) {
     return <p className="text-center text-gray-500 mt-4">No contacts found.</p>;
   }
 
   const DeleteHandler = async (contactId: string) => {
-    const confirmDelete = confirm("Are you sure you want to delete this contact?");
+    const confirmDelete = confirm(
+      "Are you sure you want to delete this contact?"
+    );
     if (!confirmDelete) return;
 
     try {
@@ -44,39 +54,52 @@ export default function ContactsClient({ contacts }: Props) {
   };
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-      {contactList.map((contact) => (
-        <div
-          key={contact._id}
-          className="bg-white relative shadow-md flex flex-col justify-start gap-3 rounded-xl p-5 border-r-2 border-[#4f5d6e] hover:shadow-xl transition-shadow duration-300"
-        >
-          <div className="absolute h-full pr-4 flex flex-col justify-center items-center gap-5 pt-4 right-0">
-            <Link href={`/contacts/${contact._id}/edit`}>
-              <CiEdit size={20} className="cursor-pointer text-green-500" />
-            </Link>
-            <MdDeleteOutline
-              onClick={() => DeleteHandler(contact._id)}
-              size={20}
-              className="cursor-pointer text-red-500"
-            />
-            <FaRegHeart size={18} className="cursor-pointer" />
-          </div>
+    <>
+      <div className="flex justify-center items-center gap-2 p-2">
+        <input
+          onChange={(e) => setSearch(e.target.value)}
+          value={search}
+          className="border border-gray-300 outline-0 w-full px-3 rounded-2xl py-2"
+          type="text"
+          placeholder="Search..."
+        />
+        <FaRegHeart size={26} className="cursor-pointer" />
+      </div>
 
-          <h2 className="text-xl font-semibold mb-2">
-            {contact.Fname} {contact.Lname}
-          </h2>
-          <hr />
-          <p>
-            <span className="font-medium">Age:</span> {contact.age}
-          </p>
-          <p>
-            <span className="font-medium">Gender:</span> {contact.gender}
-          </p>
-          <p>
-            <span className="font-medium">Phone:</span> {contact.phone}
-          </p>
-        </div>
-      ))}
-    </div>
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
+        {filteredContacts.map((contact) => (
+          <div
+            key={contact._id}
+            className="bg-white relative shadow-md flex flex-col justify-start gap-3 rounded-xl p-5 border-r-2 border-[#4f5d6e] hover:shadow-xl transition-shadow duration-300"
+          >
+            <div className="absolute h-full pr-4 flex flex-col justify-center items-center gap-5 pt-4 right-0">
+              <Link href={`/contacts/${contact._id}/edit`}>
+                <CiEdit size={20} className="cursor-pointer text-green-500" />
+              </Link>
+              <MdDeleteOutline
+                onClick={() => DeleteHandler(contact._id)}
+                size={20}
+                className="cursor-pointer text-red-500"
+              />
+              <FaRegHeart size={18} className="cursor-pointer" />
+            </div>
+
+            <h2 className="text-xl font-semibold mb-2">
+              {contact.Fname} {contact.Lname}
+            </h2>
+            <hr />
+            <p>
+              <span className="font-medium">Age:</span> {contact.age}
+            </p>
+            <p>
+              <span className="font-medium">Gender:</span> {contact.gender}
+            </p>
+            <p>
+              <span className="font-medium">Phone:</span> {contact.phone}
+            </p>
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
