@@ -40,9 +40,9 @@ This project is a great showcase of **frontend, backend, and authentication skil
 # Create a .env.local file in the root directory with your MongoDB URI and JWT secret:
 
 npm install
-# or
+## or
 yarn install
-# or
+## or
 pnpm install
 
 DATABASE_URL="your-mongodb-uri"
@@ -50,11 +50,11 @@ JWT_SECRET="your-secret-key"
 
 # Run the development server
 npm run dev
-# or
+## or
 yarn dev
-# or
+## or
 pnpm dev
-# or
+## or
 bun dev
 
 # Open http://localhost:3000
