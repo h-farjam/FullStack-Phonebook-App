@@ -18,22 +18,6 @@ This project is a great showcase of **frontend, backend, and authentication skil
 
 ---
 
-## 📂 Project Structure
-
-
-├── app/
-│ ├── api/
-│ │ └── contacts/ # API routes for CRUD operations
-│ ├── contacts/ # Contacts pages (list, edit, add)
-│ ├── layout.tsx
-│ └── page.tsx
-├── components/ # Client-side components (ContactsClient, Forms, etc.)
-├── Models/ # Mongoose models (Contact, User)
-├── utils/ # Utilities (ConnectDB, ValidationToken, etc.)
-
-
----
-
 ## 🛠️ Tech Stack
 
 - **Next.js 15 (App Router)**  
