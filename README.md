@@ -37,15 +37,20 @@ This project is a great showcase of **frontend, backend, and authentication skil
    git clone https://github.com/your-username/phonebook-app.git
    cd phonebook-app
 
-npm install 
+npm install
+# or
 yarn install
+# or
 pnpm install
+# or
+bun install
+
 
 # Create a .env.local file in the root directory with your MongoDB URI and JWT secret:
 
 
-DATABASE_URL="mongodb+srv://phonebook_user:H0912573340202h@phonebookapp.sec0sxg.mongodb.net/?retryWrites=true&w=majority&appName=PhonebookApp"
-JWT_SECRET="DKlhkvnidyg9iwe6735t47$3@jmdvnbojswLSGH%4"
+## DATABASE_URL="mongodb+srv://phonebook_user:H0912573340202h@phonebookapp.sec0sxg.mongodb.net/?retryWrites=true&w=majority&appName=PhonebookApp"
+## JWT_SECRET="DKlhkvnidyg9iwe6735t47$3@jmdvnbojswLSGH%4"
 
 # Run the development server
 npm run dev
