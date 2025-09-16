@@ -1,9 +1,20 @@
-# 📱 FullStack Phonebook App
+# Full-Stack Phonebook App
 
-A **full-stack phonebook application** built with **Next.js 15, TypeScript, and MongoDB**.  
-This project is a great showcase of **frontend, backend, and authentication skills** in a real-world app.
+A **full-stack phonebook application** built with **Next.js, TypeScript, Tailwind CSS, Next.js API Routes, and MongoDB**.
 
----
+## 🌐 Live Demo
+
+Check the live project here:  
+[Full-Stack Phonebook App on Vercel](https://full-stack-phonebook-app.vercel.app)
+
+## 🚀 Features (Full CRUD)
+
+This project implements **full CRUD operations** for managing contacts:
+
+- **Create**: Add new contacts with name, email, and phone number  
+- **Read**: View the list of all contacts  
+- **Update**: Edit existing contacts  
+- **Delete**: Remove contacts from the phonebook  
 
 ## 🚀 Features
 
@@ -28,34 +39,4 @@ This project is a great showcase of **frontend, backend, and authentication skil
 - **react-hot-toast** (Notifications)  
 - **TailwindCSS** (Styling)  
 
----
 
-## ⚙️ Getting Started
-
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/phonebook-app.git
-   cd phonebook-app
-
-npm install
-# or
-yarn install
-# or
-pnpm install
-# or
-bun install
-
-
-# Create a .env.local file in the root directory with your MongoDB URI and JWT secret:
-
-
-## DATABASE_URL="mongodb+srv://phonebook_user:H0912573340202h@phonebookapp.sec0sxg.mongodb.net/?retryWrites=true&w=majority&appName=PhonebookApp"
-## JWT_SECRET="DKlhkvnidyg9iwe6735t47$3@jmdvnbojswLSGH%4"
-
-# Run the development server
-npm run dev
-yarn dev
-pnpm dev
-bun dev
-
-## Open http://localhost:3000
