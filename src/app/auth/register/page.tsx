@@ -103,7 +103,7 @@ export default function RegisterPage() {
         />
         <input
           type="text"
-          placeholder="Phone Number"
+          placeholder="Example: 0912-473-5521"
           value={phone}
           onChange={(e) => setPhone(e.target.value)}
           className="border w-full rounded-lg px-2 py-2 outline-none border-gray-300 focus:border-blue-500"
