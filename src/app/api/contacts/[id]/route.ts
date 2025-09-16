@@ -51,12 +51,12 @@ export async function PUT(
   });
 }
 
-
 export async function DELETE(
   req: Request,
-  { params }: { params: { id: string } } 
+  { params }: { params: Promise<{ id: string }> }
 ) {
-  const { id } = params;
+  const resolve = await params;
+  const { id } = resolve;
   console.log("Deleting contact with ID:", id);
 
   const user = await ValidateToken();
